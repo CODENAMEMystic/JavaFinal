@@ -1,10 +1,10 @@
 import greenfoot.*;
 
 /**
- * Write a description of class MyPlayer2 here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * 
+ * @author TO 
+ * @version 2.0.0
  */
 public class MyPlayer2 extends Tanks
 {
