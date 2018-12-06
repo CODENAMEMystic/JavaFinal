@@ -26,40 +26,43 @@ public class MyPlayer2 extends Tanks
         moveAround();
         fire();
         getHit();
-        findPlayer();
+        findPlayer(); //Ai System
         
     }  
     
     public void findPlayer()
     {
-        myplayer1 = (MyPlayer1) getObjectsInRange(500, MyPlayer1.class).get(0);
-        p2x = getX();
-        p2y = getY();
+        //[NOTE] Will refine code later to remove unnecessary code.
         
-        distance2player1X = (myplayer1.getX() - getX());
-        distance2player1Y = (myplayer1.getY() - getY());
-        if(distance2player1X < 10)
+        //getObjectsInRange(int range, object.class) returns a list of objects in range of AI
+        myplayer1 = (MyPlayer1) getObjectsInRange(500, MyPlayer1.class).get(0); //returns first object in range (500) of AI
+        p2x = getX(); //gets actors x position
+        p2y = getY(); //gets actor y position
+        
+        distance2player1X = (myplayer1.getX() - getX()); //distance on x axis from player 1 to AI
+        distance2player1Y = (myplayer1.getY() - getY()); //distance on y axis from player 1 to AI
+        if(distance2player1X < 10) //if player 1 is to the left of AI
         {
             setLocation(getX() - speed, getY());
             setRotation(90);
         }
-        else if(distance2player1X > 50)
+        else if(distance2player1X > 50) //if player 1 is to the right of AI
         {
             setLocation(getX() + speed, getY());
         }
-        if(distance2player1Y < 50)
+        if(distance2player1Y < 50) //if player 1 is above AI
         {
             setLocation(getX(), getY() - speed);
             setRotation(0);
         }
-        else if(distance2player1Y > 50)
+        else if(distance2player1Y > 50) //if player 1 is below AI
         {
             setLocation(getX(), getY() + speed);
         }
          
         
         
-        //setLocation(distance2player1X, distance2player1Y);
+        //setLocation(distance2player1X, distance2player1Y); //instantly moves AI to player location (Remove)
         
     }
     
